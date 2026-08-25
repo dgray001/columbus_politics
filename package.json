@@ -7,5 +7,38 @@
     "type": "git",
     "url": "git+https://github.com/dgray001/columbus_politics.git"
   },
-  "license": "ISC"
+  "license": "ISC",
+  "scripts": {
+    "build": "webpack --config webpack.prod.js",
+    "dev": "webpack serve --config webpack.dev.js",
+    "add": "python addComponent.py",
+    "ts": "npx tsc --noEmit",
+    "lint": "eslint \"src/**/*.{js,mjs,cjs,ts,tsx}\" --fix",
+    "format": "prettier --write \"src/**/*.{js,mjs,cjs,ts,tsx,html,css,json,yaml,md}\"",
+    "lint-check": "eslint \"src/**/*.{js,mjs,cjs,ts,tsx}\"",
+    "format-check": "prettier --check \"src/**/*.{js,mjs,cjs,ts,tsx,html,css,json,yaml,md}\""
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.11",
+    "@types/webpack": "^5.28.1",
+    "@typescript-eslint/eslint-plugin": "^8.65.0",
+    "@typescript-eslint/parser": "^8.65.0",
+    "eslint": "^9.39.2",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "^10.1.8",
+    "file-loader": "^6.2.0",
+    "prettier": "^3.7.4",
+    "sass": "^1.69.4",
+    "ts-loader": "^9.6.2",
+    "typescript": "^6.0.3",
+    "webpack": "^5.78.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^6.0.0"
+  },
+  "dependencies": {
+    "css-loader": "^6.7.3",
+    "html-loader": "^4.2.0",
+    "sass-loader": "^13.2.2",
+    "style-loader": "^3.3.2"
+  }
 }

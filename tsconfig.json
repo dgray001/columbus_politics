@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "declaration": true,
+    "module": "es6",
+    "moduleResolution": "bundler",
+    "strict": true,
+    "noImplicitAny": true,
+    "outDir": "./tsout",
+    "preserveConstEnums": true,
+    "removeComments": true,
+    "rootDir": ".",
+    "sourceMap": true,
+    "target": "es6",
+    "typeRoots": ["./node_modules/@types"],
+    "types": ["node"],
+    "skipLibCheck": true,
+  },
+  "include": ["src", "src/types.d.ts", "eslint.config.mjs"],
+  "exclude": [
+    "node_modules",
+  ],
+}

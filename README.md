@@ -4,7 +4,7 @@ Static site explaining local and state politics to Columbus-area residents.
 
 ## Current Version
 
-v0.0a: Initial commit
+v0.1b: TS + webpack component framework
 
 ## Dev Use
 
