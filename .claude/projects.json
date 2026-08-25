@@ -1,0 +1,25 @@
+{
+  "default": "columbus_politics",
+  "projects": {
+    "columbus_politics": {
+      "name": "Columbus Politics",
+      "files": [
+        "README.md",
+        "PLANS.md",
+        "package.json",
+        "tsconfig.json",
+        "webpack.config.js",
+        "webpack.dev.js",
+        "webpack.prod.js",
+        "addComponent.py",
+        "src/components/**/*",
+        "src/pages/*",
+        "src/scripts/*",
+        "src/data/*",
+        "src/styles.scss",
+        "src/modules.d.ts",
+        "docs/index.html"
+      ]
+    }
+  }
+}

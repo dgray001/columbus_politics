@@ -1,0 +1,11 @@
+{
+  "name": "columbus_politics",
+  "version": "1.0.0",
+  "description": "Explains how Ohio state, Columbus city, and local/county politics works",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dgray001/columbus_politics.git"
+  },
+  "license": "ISC"
+}
