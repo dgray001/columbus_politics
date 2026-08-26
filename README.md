@@ -4,7 +4,7 @@ Static site explaining local and state politics to Columbus-area residents.
 
 ## Current Version
 
-v0.1b: TS + webpack component framework
+v0.1c: Header component with nav
 
 ## Dev Use
 
@@ -26,4 +26,4 @@ npm run add
 npm run build
 ```
 
-Builds into /docs, which GitHub Pages serves directly from main.
+Builds into /docs, which GitHub Pages serves directly from master.

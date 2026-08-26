@@ -7,6 +7,10 @@ module.exports = {
 			dependOn: 'index',
 			import: './src/pages/columbus.ts',
 		},
+		'franklin-county': {
+			dependOn: 'index',
+			import: './src/pages/franklin_county.ts',
+		},
 		metro: {
 			dependOn: 'index',
 			import: './src/pages/metro.ts',
@@ -15,9 +19,9 @@ module.exports = {
 			dependOn: 'index',
 			import: './src/pages/ohio.ts',
 		},
-		federal: {
+		'special-districts': {
 			dependOn: 'index',
-			import: './src/pages/federal.ts',
+			import: './src/pages/special_districts.ts',
 		},
 	},
 	module: {

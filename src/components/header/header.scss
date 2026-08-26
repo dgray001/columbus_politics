@@ -1,0 +1,125 @@
+cbp-header {
+  --header-height: 56px;
+  --header-background: #ffffff;
+  --header-border: #dddddd;
+  --link-color: #1a1a1a;
+  --link-current-color: #0b5fa5;
+
+  background-color: var(--header-background);
+  border-bottom: 1px solid var(--header-border);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  height: var(--header-height);
+  padding: 0 20px;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+
+  #title-link {
+    color: var(--link-color);
+    text-decoration: none;
+
+    #title {
+      font-size: 20px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+  }
+
+  #nav-links {
+    display: flex;
+    gap: 20px;
+    margin-left: auto;
+  }
+
+  .nav-link {
+    color: var(--link-color);
+    font-size: 15px;
+    text-decoration: none;
+    white-space: nowrap;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &.current {
+      color: var(--link-current-color);
+      font-weight: 700;
+    }
+  }
+
+  #hamburger {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    margin-left: auto;
+    padding: 8px;
+
+    span {
+      background-color: var(--link-color);
+      display: block;
+      height: 2px;
+      width: 24px;
+    }
+  }
+
+  #overlay {
+    background-color: rgba(0, 0, 0, 0.4);
+    bottom: 0;
+    display: none;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 101;
+  }
+
+  #sidebar {
+    background-color: var(--header-background);
+    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    height: 100%;
+    padding: calc(var(--header-height) + 16px) 24px 24px;
+    position: fixed;
+    right: 0;
+    top: 0;
+    transition: transform 200ms ease-out;
+    transform: translateX(100%);
+    width: min(280px, 80vw);
+    z-index: 102;
+
+    .nav-link {
+      padding: 10px 0;
+    }
+  }
+
+  &.sidebar-open {
+    #overlay {
+      display: block;
+    }
+
+    #sidebar {
+      transform: translateX(0);
+    }
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  cbp-header {
+    #nav-links {
+      display: none;
+    }
+
+    #hamburger {
+      display: flex;
+    }
+  }
+}
