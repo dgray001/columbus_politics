@@ -4,7 +4,7 @@ Static site explaining local and state politics to Columbus-area residents.
 
 ## Current Version
 
-v0.1f: Columbus City skeleton pages
+v0.0g: Fix blank page bug
 
 ## Dev Use
 

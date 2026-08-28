@@ -8,6 +8,7 @@ import './header.scss';
 
 export class CbpHeader extends CbpElement {
   private title_el!: HTMLDivElement;
+  private title_link!: HTMLAnchorElement;
   private nav_links!: HTMLElement;
   private sidebar!: HTMLElement;
   private hamburger!: HTMLButtonElement;
@@ -19,12 +20,13 @@ export class CbpHeader extends CbpElement {
     super();
     this.html_string = html;
     this.configureElement('title_el', 'title');
-    this.configureElements('nav_links', 'sidebar', 'hamburger', 'overlay');
+    this.configureElements('title_link', 'nav_links', 'sidebar', 'hamburger', 'overlay');
   }
 
   protected override parsedCallback(): void {
     this.title_el.textContent = SITE_NAME;
     const base = this.getAttribute('base') ?? '';
+    this.title_link.href = base || '.';
     const active_page = this.getAttribute('active');
     const active_sub = this.getAttribute('active-sub');
     for (const page of Object.values(PAGES)) {
@@ -36,6 +38,14 @@ export class CbpHeader extends CbpElement {
     const page_heading = document.getElementById('page-heading');
     if (page_heading && label) {
       page_heading.textContent = label;
+    }
+    const subpage_links = document.getElementById('subpage-links');
+    const active = Object.values(PAGES).find((page) => page.slug === active_page);
+    if (subpage_links && active?.subpages) {
+      for (const sub of active.subpages) {
+        const link = this.createSubLink(active, sub, base, active_sub);
+        subpage_links.appendChild(document.createElement('li')).appendChild(link);
+      }
     }
     this.hamburger.addEventListener('click', () => {
       this.setSidebarOpen(!this.sidebar_open);
@@ -68,7 +78,7 @@ export class CbpHeader extends CbpElement {
     active_page: string | null,
     active_sub: string | null
   ): HTMLElement {
-    const link = this.createLink(page.label, `${base}${page.slug}.html`, page.slug === active_page);
+    const link = this.createLink(page.label, `${base}${page.slug}`, page.slug === active_page);
     if (!page.subpages) {
       return link;
     }
@@ -91,7 +101,7 @@ export class CbpHeader extends CbpElement {
     active_page: string | null,
     active_sub: string | null
   ): HTMLElement {
-    const link = this.createLink(page.label, `${base}${page.slug}.html`, page.slug === active_page);
+    const link = this.createLink(page.label, `${base}${page.slug}`, page.slug === active_page);
     if (!page.subpages) {
       return link;
     }
@@ -110,7 +120,7 @@ export class CbpHeader extends CbpElement {
   }
 
   private createSubLink(page: PageInfo, sub: SubpageInfo, base: string, active_sub: string | null): HTMLAnchorElement {
-    return this.createLink(sub.label, `${base}${page.slug}/${sub.slug}.html`, sub.slug === active_sub);
+    return this.createLink(sub.label, `${base}${page.slug}/${sub.slug}`, sub.slug === active_sub);
   }
 
   private setSidebarOpen(sidebar_open: boolean): void {

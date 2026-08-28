@@ -6,7 +6,7 @@ const script_url = new URL(import.meta.url);
 const page = script_url.searchParams.get('page');
 const base = script_url.searchParams.get('base') ?? '';
 
-const { version } = await import(`${base}scripts/version.js?v=${Math.floor(Date.now() / (1000 * 60 * 60))}`);
+const { version } = await import(`./version.js?v=${Math.floor(Date.now() / (1000 * 60 * 60))}`);
 
 /**
  * Injects a bundle script as a Promise to ensure load order

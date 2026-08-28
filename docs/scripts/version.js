@@ -1,1 +1,1 @@
-export const version = 'v0.1f: Columbus City skeleton pages';
+export const version = 'v0.0g: Fix blank page bug';
