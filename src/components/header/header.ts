@@ -1,6 +1,6 @@
 import { CbpElement } from '../cbp_element';
 import { PAGES, SITE_NAME } from '../../scripts/pages';
-import type { PageInfo } from '../../scripts/pages';
+import type { PageInfo, SubpageInfo } from '../../scripts/pages';
 
 import html from './header.html';
 
@@ -24,12 +24,19 @@ export class CbpHeader extends CbpElement {
 
   protected override parsedCallback(): void {
     this.title_el.textContent = SITE_NAME;
+    const base = this.getAttribute('base') ?? '';
     const active_page = this.getAttribute('active');
+    const active_sub = this.getAttribute('active-sub');
     for (const page of Object.values(PAGES)) {
-      this.nav_links.appendChild(this.createNavLink(page, active_page));
-      this.sidebar.appendChild(this.createNavLink(page, active_page));
+      this.nav_links.appendChild(this.createRowNavItem(page, base, active_page, active_sub));
+      this.sidebar.appendChild(this.createSidebarNavItem(page, base, active_page, active_sub));
     }
-    document.title = this.resolvePageLabel(active_page) ?? SITE_NAME;
+    const label = this.resolveActiveLabel(active_page, active_sub);
+    document.title = label ? `${label} | ${SITE_NAME}` : SITE_NAME;
+    const page_heading = document.getElementById('page-heading');
+    if (page_heading && label) {
+      page_heading.textContent = label;
+    }
     this.hamburger.addEventListener('click', () => {
       this.setSidebarOpen(!this.sidebar_open);
     });
@@ -38,21 +45,72 @@ export class CbpHeader extends CbpElement {
     });
   }
 
-  private resolvePageLabel(active_page: string | null): string | undefined {
+  private resolveActiveLabel(active_page: string | null, active_sub: string | null): string | undefined {
     const page = Object.values(PAGES).find((page) => page.slug === active_page);
-    const label = this.getAttribute('page-title') ?? page?.label;
-    return label ? `${label} | ${SITE_NAME}` : undefined;
+    const sub = page?.subpages?.find((sub) => sub.slug === active_sub);
+    return this.getAttribute('page-title') ?? sub?.label ?? page?.label ?? undefined;
   }
 
-  private createNavLink(page: PageInfo, active_page: string | null): HTMLAnchorElement {
+  private createLink(label: string, href: string, current: boolean): HTMLAnchorElement {
     const link = document.createElement('a');
     link.classList.add('nav-link');
-    link.textContent = page.label;
-    link.href = `${page.slug}.html`;
-    if (page.slug === active_page) {
+    link.textContent = label;
+    link.href = href;
+    if (current) {
       link.classList.add('current');
     }
     return link;
+  }
+
+  private createRowNavItem(
+    page: PageInfo,
+    base: string,
+    active_page: string | null,
+    active_sub: string | null
+  ): HTMLElement {
+    const link = this.createLink(page.label, `${base}${page.slug}.html`, page.slug === active_page);
+    if (!page.subpages) {
+      return link;
+    }
+    const item = document.createElement('div');
+    item.classList.add('nav-item');
+    link.classList.add('header-el');
+    item.appendChild(link);
+    const panel = document.createElement('div');
+    panel.classList.add('dropdown-panel');
+    for (const sub of page.subpages) {
+      panel.appendChild(this.createSubLink(page, sub, base, active_sub));
+    }
+    item.appendChild(panel);
+    return item;
+  }
+
+  private createSidebarNavItem(
+    page: PageInfo,
+    base: string,
+    active_page: string | null,
+    active_sub: string | null
+  ): HTMLElement {
+    const link = this.createLink(page.label, `${base}${page.slug}.html`, page.slug === active_page);
+    if (!page.subpages) {
+      return link;
+    }
+    const item = document.createElement('div');
+    item.classList.add('sidebar-item');
+    item.appendChild(link);
+    const sub_list = document.createElement('div');
+    sub_list.classList.add('sidebar-sublist');
+    for (const sub of page.subpages) {
+      const sub_link = this.createSubLink(page, sub, base, active_sub);
+      sub_link.classList.add('sub-link');
+      sub_list.appendChild(sub_link);
+    }
+    item.appendChild(sub_list);
+    return item;
+  }
+
+  private createSubLink(page: PageInfo, sub: SubpageInfo, base: string, active_sub: string | null): HTMLAnchorElement {
+    return this.createLink(sub.label, `${base}${page.slug}/${sub.slug}.html`, sub.slug === active_sub);
   }
 
   private setSidebarOpen(sidebar_open: boolean): void {

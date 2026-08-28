@@ -9,6 +9,7 @@
   },
   "license": "ISC",
   "scripts": {
+    "prebuild": "node generate_version.js",
     "build": "webpack --config webpack.prod.js",
     "dev": "webpack serve --config webpack.dev.js",
     "add": "python addComponent.py",
