@@ -1,12 +1,8 @@
 cbp-header {
   --header-height: 56px;
-  --header-background: #ffffff;
-  --header-border: #dddddd;
-  --link-color: #1a1a1a;
-  --link-current-color: #0b5fa5;
 
-  background-color: var(--header-background);
-  border-bottom: 1px solid var(--header-border);
+  background-color: var(--surface);
+  border-bottom: 1px solid var(--border);
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -19,7 +15,7 @@ cbp-header {
   z-index: 100;
 
   #title-link {
-    color: var(--link-color);
+    color: var(--text);
     text-decoration: none;
 
     #title {
@@ -36,7 +32,7 @@ cbp-header {
   }
 
   .nav-link {
-    color: var(--link-color);
+    color: var(--text);
     font-size: 15px;
     text-decoration: none;
     white-space: nowrap;
@@ -46,7 +42,7 @@ cbp-header {
     }
 
     &.current {
-      color: var(--link-current-color);
+      color: var(--accent);
       font-weight: 700;
     }
   }
@@ -62,7 +58,7 @@ cbp-header {
     padding: 8px;
 
     span {
-      background-color: var(--link-color);
+      background-color: var(--text);
       display: block;
       height: 2px;
       width: 24px;
@@ -81,7 +77,7 @@ cbp-header {
   }
 
   #sidebar {
-    background-color: var(--header-background);
+    background-color: var(--surface);
     box-shadow: -2px 0 8px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;

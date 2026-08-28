@@ -4,7 +4,7 @@ Static site explaining local and state politics to Columbus-area residents.
 
 ## Current Version
 
-v0.1c: Header component with nav
+v0.1d: Color palette review (dark/light + 3 palettes)
 
 ## Dev Use
 
