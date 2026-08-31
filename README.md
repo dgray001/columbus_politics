@@ -4,7 +4,7 @@ Static site explaining local and state politics to Columbus-area residents.
 
 ## Current Version
 
-v0.0h: Resources and citations system
+v0.0j: Markdown refactor
 
 ## Dev Use
 
@@ -12,7 +12,7 @@ v0.0h: Resources and citations system
 npm run dev
 ```
 
-Navigate to localhost:8080
+Navigate to localhost:8081
 
 To create a new component or page
 

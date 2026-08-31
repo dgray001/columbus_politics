@@ -2,6 +2,7 @@
   "compilerOptions": {
     "allowJs": true,
     "declaration": true,
+    "esModuleInterop": true,
     "module": "es6",
     "moduleResolution": "bundler",
     "strict": true,
@@ -16,7 +17,7 @@
     "types": ["node"],
     "skipLibCheck": true,
   },
-  "include": ["src", "src/types.d.ts", "eslint.config.mjs"],
+  "include": ["src", "src/types.d.ts", "eslint.config.mjs", "generate_pages.ts"],
   "exclude": [
     "node_modules",
   ],

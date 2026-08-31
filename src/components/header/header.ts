@@ -39,14 +39,6 @@ export class CbpHeader extends CbpElement {
     if (page_heading && label) {
       page_heading.textContent = label;
     }
-    const subpage_links = document.getElementById('subpage-links');
-    const active = Object.values(PAGES).find((page) => page.slug === active_page);
-    if (subpage_links && active?.subpages) {
-      for (const sub of active.subpages) {
-        const link = this.createSubLink(active, sub, base, active_sub);
-        subpage_links.appendChild(document.createElement('li')).appendChild(link);
-      }
-    }
     this.hamburger.addEventListener('click', () => {
       this.setSidebarOpen(!this.sidebar_open);
     });
@@ -78,7 +70,7 @@ export class CbpHeader extends CbpElement {
     active_page: string | null,
     active_sub: string | null
   ): HTMLElement {
-    const link = this.createLink(page.label, `${base}${page.slug}`, page.slug === active_page);
+    const link = this.createLink(page.label, `${base}${page.slug}/`, page.slug === active_page);
     if (!page.subpages) {
       return link;
     }
@@ -101,7 +93,7 @@ export class CbpHeader extends CbpElement {
     active_page: string | null,
     active_sub: string | null
   ): HTMLElement {
-    const link = this.createLink(page.label, `${base}${page.slug}`, page.slug === active_page);
+    const link = this.createLink(page.label, `${base}${page.slug}/`, page.slug === active_page);
     if (!page.subpages) {
       return link;
     }
@@ -120,7 +112,7 @@ export class CbpHeader extends CbpElement {
   }
 
   private createSubLink(page: PageInfo, sub: SubpageInfo, base: string, active_sub: string | null): HTMLAnchorElement {
-    return this.createLink(sub.label, `${base}${page.slug}/${sub.slug}`, sub.slug === active_sub);
+    return this.createLink(sub.label, `${base}${page.slug}/${sub.slug}/`, sub.slug === active_sub);
   }
 
   private setSidebarOpen(sidebar_open: boolean): void {

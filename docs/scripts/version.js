@@ -1,1 +1,1 @@
-export const version = 'v0.0h: Resources and citations system';
+export const version = 'v0.0j: Markdown refactor';
