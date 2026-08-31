@@ -14,5 +14,5 @@ v0.1: Columbus City Launch
 
 Content Plans:
  - Update City Council ballot section once Nov 2026 result is certified (date-dependent, not yet actionable)
- - Interactive elements (TBD, e.g. org chart diagrams, maps)
+ - Figures (TBD): Elected Executives - comparison table, mayor succession diagram. City Council - district map, ballot measures comparison table. Administration - appointment-chain diagram, revenue-by-source chart. Elections - petition types comparison table, process flowchart.
  - Franklin County / Metro / Ohio / Special Districts: same page-tree treatment once Columbus City is done

@@ -4,7 +4,7 @@ Static site explaining local and state politics to Columbus-area residents.
 
 ## Current Version
 
-v0.0m: Elected executives rename
+v0.0n: Columbus city hub page
 
 ## Dev Use
 
