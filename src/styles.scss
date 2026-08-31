@@ -56,6 +56,18 @@ main {
 
 a {
   color: var(--accent);
+
+  &:visited {
+    color: color-mix(in srgb, var(--accent) 60%, var(--text-muted));
+  }
+
+  &:hover {
+    opacity: 0.75;
+  }
+
+  &:active {
+    opacity: 0.55;
+  }
 }
 
 h1, h2, h3 {

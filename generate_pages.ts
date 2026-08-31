@@ -99,8 +99,19 @@ function registerLinkRewriting(md: MarkdownItInstance, ctx: PageContext): void {
             const text_token = new state.Token('text', '', 0);
             text_token.content = text;
             new_children.push(text_token);
+            // Footnote markers follow terminal punctuation ("fact.4" not "fact4.").
+            const next_token = children[close_index + 1];
+            if (next_token && next_token.type === 'text') {
+              const punct_match = next_token.content.match(/^[.,;:!?]+/);
+              if (punct_match) {
+                const punct_token = new state.Token('text', '', 0);
+                punct_token.content = punct_match[0];
+                new_children.push(punct_token);
+                next_token.content = next_token.content.slice(punct_match[0].length);
+              }
+            }
             const sup_token = new state.Token('html_inline', '', 0);
-            sup_token.content = `<sup class="citation-ref"><a href="#cite-${key}">${number}</a></sup>`;
+            sup_token.content = `<sup class="citation-ref"><a href="#cite-${key}">[${number}]</a></sup>`;
             new_children.push(sup_token);
           }
         } else if (href.startsWith('resource:')) {
