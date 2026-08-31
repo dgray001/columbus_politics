@@ -50,7 +50,8 @@ export class CbpHeader extends CbpElement {
   private resolveActiveLabel(active_page: string | null, active_sub: string | null): string | undefined {
     const page = Object.values(PAGES).find((page) => page.slug === active_page);
     const sub = page?.subpages?.find((sub) => sub.slug === active_sub);
-    return this.getAttribute('page-title') ?? sub?.label ?? page?.label ?? undefined;
+    const combined = page && sub ? `${page.label} ${sub.label}` : undefined;
+    return this.getAttribute('page-title') ?? combined ?? page?.label ?? undefined;
   }
 
   private createLink(label: string, href: string, current: boolean): HTMLAnchorElement {
