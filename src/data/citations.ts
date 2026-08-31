@@ -6,6 +6,18 @@ export interface CitationInfo {
 }
 
 export const CITATIONS: Record<string, CitationInfo> = {
+  franklinton_founding_1797: {
+    label: 'City of Columbus Hall of Fame — Lucas Sullivant',
+    url: 'https://www.columbus.gov/Government/Mayors-Office/City-of-Columbus-Hall-of-Fame/Lucas-Sullivant',
+  },
+  columbus_founding_1812: {
+    label: 'City of Columbus FY2025 Budget — Community Profile',
+    url: RESOURCES.budget_community_profile.href,
+  },
+  columbus_charter_1834: {
+    label: 'City of Columbus Annual Comprehensive Financial Report — The Reporting Entity',
+    url: RESOURCES.cafr_reporting_entity.href,
+  },
   oh_const_art18_sec3: {
     label: 'Ohio Constitution, Article XVIII, Section 3 (Municipal Powers)',
     url: 'https://codes.ohio.gov/ohio-constitution/section-18.3',

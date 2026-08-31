@@ -1,0 +1,51 @@
+cbp-officeholder-timeline {
+  display: block;
+  margin: 20px 0;
+
+  #track {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+
+  .officeholder-card {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    flex: 0 0 auto;
+    padding: 12px;
+    text-align: center;
+    width: 120px;
+  }
+
+  .officeholder-photo {
+    align-items: center;
+    background-color: var(--accent-muted);
+    border-radius: 50%;
+    color: var(--text);
+    display: flex;
+    font-weight: 700;
+    height: 72px;
+    justify-content: center;
+    margin: 0 auto 8px;
+    overflow: hidden;
+    width: 72px;
+
+    img {
+      height: 100%;
+      object-fit: cover;
+      width: 100%;
+    }
+  }
+
+  .officeholder-name {
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .officeholder-years {
+    color: var(--text-muted);
+    font-size: 12px;
+  }
+}

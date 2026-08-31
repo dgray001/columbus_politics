@@ -187,7 +187,11 @@ function renderCitationsHtml(ctx: PageContext): string {
     .map(([key]) => {
       const citation = CITATIONS[key];
       const href = citation.url.startsWith('http') ? citation.url : `${ctx.base}${citation.url}`;
-      return `      <li id="cite-${key}"><a href="${href}">${citation.label}</a></li>`;
+      const resource = citation.url.startsWith('http')
+        ? undefined
+        : Object.values(RESOURCES).find((resource) => resource.href === citation.url);
+      const source = resource ? ` (<a href="${resource.source_url}">source</a>)` : '';
+      return `      <li id="cite-${key}"><a href="${href}">${citation.label}</a>${source}</li>`;
     })
     .join('\n');
   return `\n    <h2>Citations</h2>\n    <ol class="citations-list">\n${items}\n    </ol>\n`;
@@ -233,7 +237,7 @@ function generatePage(file_path: string): void {
   const { extra_resources, extra_citations, body } = parseFrontMatter(raw);
 
   const ctx: PageContext = { base, used_resources: [], used_citations: new Map(), warnings: [] };
-  const md = new MarkdownIt();
+  const md = new MarkdownIt({ html: true });
   registerLinkRewriting(md, ctx);
   const body_html = md.render(body);
   finalizeExtras(ctx, extra_resources, extra_citations);

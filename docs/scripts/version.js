@@ -1,1 +1,1 @@
-export const version = 'v0.0m: Elected executives rename';
+export const version = 'v0.0o: Officeholder timeline component';

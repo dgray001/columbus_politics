@@ -4,7 +4,7 @@ Static site explaining local and state politics to Columbus-area residents.
 
 ## Current Version
 
-v0.0n: Columbus city hub page
+v0.0o: Officeholder timeline component
 
 ## Dev Use
 
