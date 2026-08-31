@@ -14,13 +14,13 @@ export default [
 	google,
 	prettier,
 	{
-		files: ["src/**/*.{js,mjs,ts,tsx}"],
+		files: ["src/**/*.{js,mjs,ts,tsx}", "generate_*.ts"],
 		rules: {
 			"no-unused-vars": "off",
 		}
 	},
 	{
-		files: ["src/**/*.{ts,tsx}"],
+		files: ["src/**/*.{ts,tsx}", "generate_*.ts"],
 		plugins: {
 			"@typescript-eslint": tsEslintPlugin
 		},

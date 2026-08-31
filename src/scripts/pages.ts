@@ -16,7 +16,7 @@ export const PAGES: Record<string, PageInfo> = {
     slug: 'columbus',
     label: 'Columbus City',
     subpages: [
-      { slug: 'citywide-executives', label: 'Citywide Executives' },
+      { slug: 'elected-executives', label: 'Elected Executives' },
       { slug: 'city-council', label: 'City Council' },
       { slug: 'administration', label: 'Administration' },
       { slug: 'elections', label: 'Elections' },

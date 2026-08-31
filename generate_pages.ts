@@ -51,6 +51,7 @@ function parseFrontMatter(raw: string): FrontMatter {
 
 function findMarkdownFiles(dir: string): string[] {
   const found: string[] = [];
+  // eslint-disable-next-line @typescript-eslint/naming-convention -- Node's own fs API option name
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
     const full_path = path.join(dir, entry.name);
     if (entry.isDirectory()) {

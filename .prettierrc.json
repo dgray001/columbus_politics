@@ -8,5 +8,6 @@
   "bracketSpacing": true,
   "jsxSingleQuote": true,
   "endOfLine": "lf",
-  "trailingComma": "es5"
+  "trailingComma": "es5",
+  "proseWrap": "preserve"
 }

@@ -14,10 +14,10 @@
     "dev": "npx tsx generate_pages.ts && concurrently \"webpack serve --config webpack.dev.js\" \"npx tsx watch generate_pages.ts\"",
     "add": "python addComponent.py",
     "ts": "npx tsc --noEmit",
-    "lint": "eslint \"src/**/*.{js,mjs,cjs,ts,tsx}\" --fix",
-    "format": "prettier --write \"src/**/*.{js,mjs,cjs,ts,tsx,html,css,json,yaml,md}\"",
-    "lint-check": "eslint \"src/**/*.{js,mjs,cjs,ts,tsx}\"",
-    "format-check": "prettier --check \"src/**/*.{js,mjs,cjs,ts,tsx,html,css,json,yaml,md}\""
+    "lint": "eslint \"src/**/*.{js,mjs,cjs,ts,tsx}\" \"generate_*.ts\" --fix",
+    "format": "prettier --write \"src/**/*.{js,mjs,cjs,ts,tsx,html,css,json,yaml,md}\" \"generate_*.{ts,js}\" \"content/**/*.md\"",
+    "lint-check": "eslint \"src/**/*.{js,mjs,cjs,ts,tsx}\" \"generate_*.ts\"",
+    "format-check": "prettier --check \"src/**/*.{js,mjs,cjs,ts,tsx,html,css,json,yaml,md}\" \"generate_*.{ts,js}\" \"content/**/*.md\""
   },
   "devDependencies": {
     "@types/node": "^18.15.11",

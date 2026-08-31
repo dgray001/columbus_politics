@@ -4,7 +4,7 @@ Static site explaining local and state politics to Columbus-area residents.
 
 ## Current Version
 
-v0.0l: Citation updates
+v0.0m: Elected executives rename
 
 ## Dev Use
 
