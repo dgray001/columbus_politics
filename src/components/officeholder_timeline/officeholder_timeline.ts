@@ -41,8 +41,9 @@ export class CbpOfficeholderTimeline extends CbpElement {
     const photo = document.createElement('div');
     photo.classList.add('officeholder-photo');
     if (entry.photo) {
+      const base = document.querySelector('cbp-header')?.getAttribute('base') ?? '';
       const img = document.createElement('img');
-      img.src = entry.photo.href;
+      img.src = base + entry.photo.href;
       img.alt = entry.name;
       photo.appendChild(img);
     } else {

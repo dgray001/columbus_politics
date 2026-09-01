@@ -4,7 +4,7 @@ Static site explaining local and state politics to Columbus-area residents.
 
 ## Current Version
 
-v0.0o: Officeholder timeline component
+v0.0p: Elected executives content and officeholder photos
 
 ## Dev Use
 

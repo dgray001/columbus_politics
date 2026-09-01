@@ -42,4 +42,11 @@ export const RESOURCES: Record<string, ResourceInfo> = {
       'https://www.columbus.gov/files/sharedassets/city/v/1/city-auditor/acfr/accessible-acfr/pdfua-compliant-2002_cafr.pdf',
     retrieved_date: '2026-08-31',
   },
+  mayors_egger_1975: {
+    label: 'Egger (ed.), Columbus Mayors (1975) (PDF)',
+    href: 'resources/columbus-mayors-egger-1975.pdf',
+    description: 'Compiled by the Columbus Citizen-Journal; source for the mayoral roster',
+    source_url: 'https://genealogybug.net/franklin_county/colmayors/columbus_mayors_1.pdf',
+    retrieved_date: '2026-08-31',
+  },
 };
